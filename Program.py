@@ -1,14 +1,110 @@
-# 1 → print
+#-------------------------------------------------------------------------
+# [1] → print:
+#-------------------------------------------------------------------------
+
 print('Hello')
 
+#-------------------------------------------------------------------------
+# [2] → Types of data:
+#-------------------------------------------------------------------------
 
-#2 → variables
-name='Mohamed'    # str
-print(name)
+print('Mohamed')   # string (str)
+
+print(7)           # integer (int)
+
+print(1.5)         # float
+
+print(10==10)      # Boolean (bool)
+
+print([1,2,3,4,5])      # List
+
+print((1,2,3,4,5))       # Tuble 
+
+print({'One':1,'Two':2,"Three":3})        # Dict
+
+# to detect → type()
+print(type(10))
+print(type(1.5))
+print(type('Stop'))
+print(type([2,3,4,5]))
+print(type((2,3,4,5)))
+
+#-------------------------------------------------------------------------
+# [3] → Variables:
+#-------------------------------------------------------------------------
+
+myname='Mohamed'    # str
+print(myname)
+# myname => normal
+# myName => camelCase
+# my_name => snake_case
+
 age=20            # int
 print(age)
+
 gpa=2.7           # float
 print(gpa)
+
+x=10
+x="Hello"
+print(x)      # [will print Hello not 10]
+
+a,b,c=1,2,3
+print(a,b,c)  # [will print: 1 2 3]
+
+# No special charactars.
+# No numbers as a fisrt character.
+# Can't put the variable under the print code.
+# Can't use the already used python keywords, to know the python keywords:
+help('keywords')
+
+#-------------------------------------------------------------------------
+# [4] → Escape sequences characters:
+#-------------------------------------------------------------------------
+
+# [ \b ] => to backspace (delete a letter)  
+print('Hello \b World')
+
+# [ \n ] => New line
+print('Hello \n World')
+
+# [ \t ] => Tab
+print('Hello \t World')
+
+# [ \r ] => Carriage return
+print('123456 \r abc')
+
+# [ \ ] => Escape space
+print('Hello '\
+'World')
+
+# [ \\ ] => to add back slash in the output
+print('New \\ Old')
+
+# [ \'...\' ] => to add single & double quotes in the output
+print('Go \'to\' ')
+
+#-------------------------------------------------------------------------
+# [5] → Concatenation:
+#-------------------------------------------------------------------------
+
+n1='I love'
+n2='Python'
+
+print(n1 + ' ' + n2)
+# or
+n3= n1 + ' ' + n2
+print(n3)
+
+a='I want to say that '
+print(a + n3)
+
+print(a + "I'm " + str(20) + " years old" )
+
+
+
+
+
 
 
 # 3 → Math
@@ -88,7 +184,7 @@ del names[0]
 names.pop(2)
 
 
-# 9 → Loops  التكرار
+# 9 → Loops (For/While)  التكرار
                          # for .. in range()
 for name in range(8):
     print('Smart')
@@ -101,3 +197,53 @@ while i<=5:
     print('Mohamed')
     i+=1
 
+# List + Loops
+name=['N','V','G']
+for S in name:
+    print(S)
+
+grades=[24,56,78,98,43,78,95]
+no_of_students=0
+for b in grades:
+    if b>=50:
+        no_of_students+=1
+print('No. of students passed '+str(no_of_students))
+
+new_grades=[]
+for gra in grades:
+    bonus=gra+5
+    new_grades.append(bonus)
+print('New grades= ' + str(new_grades))
+
+# break/continue
+i=0
+while i<10:
+    i+=1
+    if i==3:
+        continue
+    if i==7:
+        break
+    print('i= ', i)
+
+
+# 10 → Functions (def)
+def greet():
+    print('Welcome')
+greet()
+
+def n(name,age):
+    print('hello',name)
+    print('your age is', age)
+n('Ahmed',23)
+
+def average(n1,n2,n3):
+    total=n1+n2+n3
+    ave=total/3
+    print('Average is ',ave)
+average(30,40,50)
+
+# return
+def age():
+    return 9
+number=age()
+print(number) 
