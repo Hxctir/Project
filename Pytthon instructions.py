@@ -1,105 +1,111 @@
 #-------------------------------------------------------------------------
 # [1] → print:
 #-------------------------------------------------------------------------
-
 print('Hello')
-
 #-------------------------------------------------------------------------
 # [2] → Types of data:
 #-------------------------------------------------------------------------
+print('Mohamed') # String (str)
+print(7) # Integer (int)
+print(1.5) # Float
+print(10==10) # Boolean (bool)
+print([1,2,3,4,5]) # List
+print((1,2,3,4,5)) # Tuble 
+print({'One':1,'Two':2,"Three":3}) # Dict
 
-print('Mohamed')   # string (str)
-
-print(7)           # integer (int)
-
-print(1.5)         # float
-
-print(10==10)      # Boolean (bool)
-
-print([1,2,3,4,5])      # List
-
-print((1,2,3,4,5))       # Tuble 
-
-print({'One':1,'Two':2,"Three":3})        # Dict
-
-# to detect → type()
+# To detect the type of data:
 print(type(10))
 print(type(1.5))
 print(type('Stop'))
-print(type([2,3,4,5]))
-print(type((2,3,4,5)))
-
 #-------------------------------------------------------------------------
 # [3] → Variables:
 #-------------------------------------------------------------------------
-
-myname='Mohamed'    # str
+myname='Mohamed' # str
 print(myname)
 # myname => normal
 # myName => camelCase
 # my_name => snake_case
 
-age=20            # int
+age=20 # int
 print(age)
 
-gpa=2.7           # float
+gpa=2.7 # float
 print(gpa)
 
 x=10
 x="Hello"
-print(x)      # [will print Hello not 10]
+print(x) # [will print Hello not 10]
 
 a,b,c=1,2,3
-print(a,b,c)  # [will print: 1 2 3]
+print(a,b,c) # [will print: 1 2 3]
 
-# No special charactars.
-# No numbers as a fisrt character.
-# Can't put the variable under the print code.
-# Can't use the already used python keywords, to know the python keywords:
+# Note: Can't use the already used python keywords as a variable, to know the python keywords:
 help('keywords')
-
 #-------------------------------------------------------------------------
 # [4] → Escape sequences characters:
 #-------------------------------------------------------------------------
+print('Hello \b World') # To backspace (delete a letter)
 
-# [ \b ] => to backspace (delete a letter)  
-print('Hello \b World')
+print('Hello \n World') # New line
 
-# [ \n ] => New line
-print('Hello \n World')
+print('Hello \t World') # Tab
 
-# [ \t ] => Tab
-print('Hello \t World')
+print('123456 \r abc') # Carriage return
 
-# [ \r ] => Carriage return
-print('123456 \r abc')
+print('Hello \
+World') # Escape space
 
-# [ \ ] => Escape space
-print('Hello '\
-'World')
+print('New \\ Old') # To add back slash in the output
 
-# [ \\ ] => to add back slash in the output
-print('New \\ Old')
+print('My name is \"Mohamed\"') # To add single & double quotes in the output
+            # Or
+print('My name is "Mohamed"')
 
-# [ \'...\' ] => to add single & double quotes in the output
-print('Go \'to\' ')
-
+print('''My
+name
+is
+Mohamed''') # To put every word under each other
 #-------------------------------------------------------------------------
-# [5] → Concatenation:
+# [5] → String methods:
+#------------------------------------------------------------------------
+print(len('My name is Mohamed')) # Count the number of characters
+print('My name is Mohamed'.title()) # Uppercase 1st letter of every word
+print('My name is Mohamed'.upper()) # Uppercase all letters
+print('My name is Mohamed'.lower()) # Lowercase all letters
+print('my name is Mohamed'.capitalize()) # Uppercase 1st letter only
+print('My name is Mohamed'.swapcase()) # Swap cases, upper to lower and lower to upper
+print('My name is Mohamed'.split()) # Split every word in a form of list
+print('   My name is Mohamed   '.strip()) # Delete tabs or any special characters added
+print('My name is Mohamed'.center(25)) # Center the string 
+print('My name is Mohamed'.count('name')) # Count number of times that the selected word is repeated
+print('My name is Mohamed'.startswith()) # Answer by true or false if the inputed letter if the first or not
+print('My name is Mohamed'.endswith())  # Answer by true or false if the inputed letter if the last or not
+print('1'.zfill(3)) # Puts zeros in front of the number in string
 #-------------------------------------------------------------------------
+# [6] → String indexing & slicing:
+#------------------------------------------------------------------------
+# [1] Indexing (Acessing single items):
+print('Mohamed'[0]) # M
+print('Mohamed'[1]) # o
+print('Mohsmed'[-1]) # d
 
-n1='I love'
-n2='Python'
+# [2] Slicing (Multible acessing single items):
+print('Mohamed'[0:5]) # Moha
+print('Mohamed'[:6]) # Moha
+print('Mohamed'[0:]) # Mohamed
+print('Mohamed'[:]) # Mohamed
+print('Mohamed'[0:8:2]) # Mhmd (:2 → number of steps)
+#-------------------------------------------------------------------------
+# [7] → Concatenation:
+#-------------------------------------------------------------------------
+word1='I love'
+word2='Python'
+print(word1+' '+word2)
 
-print(n1 + ' ' + n2)
-# or
-n3= n1 + ' ' + n2
-print(n3)
+age=20
+print('Your age is: '+str(age))
 
-a='I want to say that '
-print(a + n3)
 
-print(a + "I'm " + str(20) + " years old" )
 
 
 
