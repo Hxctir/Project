@@ -1,6 +1,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ########################################################################## [1] print #################################################################################
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 print('Hello Python!')
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,6 +71,10 @@ print(My_String[7:]) # Python
 print(My_String[0:]) # I love Python
 print(My_String[:]) # I love Python
 print(My_String[0::2]) # Ilv yhn
+
+# To revrse string characters:
+print(My_String[::-1]) # nohtyP evol I
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ######################################################################### [5] String methods ###########################################################################
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,6 +90,7 @@ str.strip() # Delete tabs from both sides (or any special characters added to th
 str.rstrip() # Delete tabs from right side
 str.lstrip() # Delete tabs from left side
 str.center(10) # Center the string
+str.replace('','')
 str.count('Python') # Count the number of times that the added word is repeated
 str.startswith('P') # Answer by true or false if the added character is the first character or not
 str.endswith('n')  # Answer by true or false if the added character is the last character or not
@@ -478,7 +484,7 @@ Age=int(input('Enter your age: '))
 print('You are not allowed to watch' if Age < MovieRate else 'You are allowed to watch')
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#################################################### [27] Full age calculator program (Advanced) #######################################################################
+#################################################### [26] Full age calculator program (Advanced) #######################################################################
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 print('#'*70)
@@ -503,7 +509,7 @@ print(f'You have lived for "{Minutes:,}" minutes.' if Choose == 'Minutes' else '
 print(f'You have lived for "{Seconds:,}" seconds.' if Choose == 'Seconds'  else '' )
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-############################################################ [28] Membership operators #################################################################################
+############################################################ [27] Membership operators #################################################################################
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # if ... in ...:
@@ -571,81 +577,318 @@ elif Name not in Admins:
     elif Adding == 'No':
         print('No problem')
 
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+########################################################################## [28] Loops: while ###########################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Example 1
+Number = 0
+while Number < 10: 
+    print(Number) # 9
+    Number += 1
+else: print('Loop is done')
 
+# Example 2
+List=[ 'Ahmed' , 'Osama' , 'Hatem' , 'Fares' ]
+A = 0
+while A < len(List): # 4
+    print(f' #{str(A+1).zfill(2)} {List[A]}')
+    A += 1
 
-#-------------------------------------------------------------------------
-# [ ] → Loops (For/While):
-#-------------------------------------------------------------------------
-# [1] For:
-for number in range(8):
-    print(number)  # 0,1,2,3,4,5,6,7,8
+# Example 3
+My_Favourite_Webs = []
 
-word='python'
-for letter in word:
+Maximum_Webs = 5
+A = 0
+while Maximum_Webs > 0:
+    Selected_Web = input('Enter your favourite webs: \n\n https://')
+    print(' ')
+    My_Favourite_Webs.append(f'https://{Selected_Web.strip().lower()}')
+    print(f' #{A+1}: https://{Selected_Web}'.strip().lower())
+    print(' ')
+    print(f'{Maximum_Webs} place(s) left')
+    print(' ')
+    A += 1
+    Maximum_Webs -= 1
+
+print('Places are full')
+print(' ')
+if len(My_Favourite_Webs) > 0:
+    My_Favourite_Webs.sort()
+
+    index = 0
+    while index < len(My_Favourite_Webs):
+        print(f'Your favourite web is: {My_Favourite_Webs[index]}')
+        index +=1
+
+# Example 4:
+Main_Password = 'd'
+Input_Password = input('Enter your password: ')
+Tries = 5
+
+while Input_Password != Main_Password:
+ Tries -= 1
+ print(f"{ 'Last' if Tries == 0 else Tries} tries are left.")
+ Input_Password = input('Enter your password: ')
+ if Tries ==0:
+  break  # stop loop
+else:
+    print('Enter')
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+########################################################################## [29] Loops: for #############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Example 1:
+numbers = [1,2,3,4,5,6,7,8]
+for number in numbers:
+    print(number)
+
+# Example 2:
+numbers = [1,2,3,4,5,6,7,8]
+for number in numbers:
+    if number % 2 == 0:
+        print(f'{number} is Even')
+    elif number % 2 != 0:
+        print(f'{number} is odd')
+
+# Example 3:
+name = 'Osama'
+for letter in name:
     print(letter)
 
-# [2] While:
-i=1
-while i<=5:
-    print('Mohamed')
-    i+=1
+# Example 4:
+myRange = range(1,101)
+for number in myRange:
+    print(number)
 
+# Example 5:
+grades = {
+    'Ahmed' : 90,
+    'Osama' : 80,
+    'Mostafa' : 60,
+    'Mohamed' : 70,
+}
+for grade in grades:
+    print(f'{grade} : {grades[grade]}')
+# or
+for key, value in grades.items():
+    print(f'{key} : {value}')
 
+# Example 6:
+skills = {
+    'Skill 1' : input('Enter your skill: ') ,
+    'Skill 2' : input('Enter your skill: ') ,
+    'Skill 3' : input('Enter your skill: ') ,
+}
+for skill in skills:
+    print(f'{skill} : {skills[skill]}')
 
+# Example 7:
+people = ['Ahmed','Farah','Kamel']
+skills = ['Html', 'CSS','Java']
+for name in people:
+    print(f'{name} has skilsl in: ')
+    for skill in skills:
+        print(f'- {skill}')
 
+# Example 8:
+people = {
+    'Osama' : {
+        'Html' : '70%',
+        'JS' : '60%',     
+    },
+    'Ahmed' : {
+        'Html' : '40%',
+        'JS' : '20%',
+    },
+}
+for name in people:
+    print(f'{name} has skills of:')
+    for skill in people[name]:
+        print(f'{skill} : {people[name][skill]}')
+# or
+for key1,value1 in people.items():
+    print(f'{key1} :')
+    for key2, value2 in value1.items():
+        print(f'- {key2} => {value2}')
 
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+########################################################################## [30] continue, break & pass ###############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-# List + Loops
-name=['N','V','G']
-for S in name:
-    print(S)
-
-grades=[24,56,78,98,43,78,95]
-no_of_students=0
-for b in grades:
-    if b>=50:
-        no_of_students+=1
-print('No. of students passed '+str(no_of_students))
-
-new_grades=[]
-for gra in grades:
-    bonus=gra+5
-    new_grades.append(bonus)
-print('New grades= ' + str(new_grades))
-
-# break/continue
-i=0
-while i<10:
-    i+=1
-    if i==3:
+# continue:
+numbers = [1,2,3,5,7,8,9]
+for number in numbers:
+    if number == 5:
         continue
-    if i==7:
+    print(number)
+
+# break:
+numbers = [1,2,3,5,7,8,9]
+for number in numbers:
+    if number == 5:
         break
-    print('i= ', i)
+    print(number)
+
+numbers = [1,2,3,5,7,8,9]
+for number in numbers:
+    print(number)
+    if number == 5:
+        break
+
+# pass:
+numbers = [1,2,3,5,7,8,9]
+for number in numbers:
+    pass
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+########################################################################## [31] Function ###############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# def                        => Function keyword (Define)
+# Say_Hello                  => Function name
+# Name                       => Parameter
+# print(f'Hello {name}')     => Task 
+# 'Ahmed'                    => Argument
+
+def Say_Hello(name):
+
+    print(f'Hello {name}')
+
+Say_Hello('Ahmed')
+
+# Example 2:
+def Adition(A,B):
+    
+    return A + B
+
+print(Adition(2,1))
+
+# Example 3:
+def full_name(first,middle,last):
+
+    print(f'Hello {first} {middle:.1s}. {last}!')
+
+full_name('Mohamed','Tarek','Badran')
+
+# Example 4:
+def addition(X,Y):
+
+    if type(X) != int or type(Y) != int:
+      print('Only integer allowed')
+    else:
+      print(int(X)+int(Y))
+
+addition(5,6)
+
+# Example 5:
+def show_skills(*skills):
+
+    for skill in skills:
+     print(f'your skill are {skill}')
+
+show_skills('g','h','d')
 
 
-# 10 → Functions (def)
-def greet():
-    print('Welcome')
-greet()
+# Default parameters:
+def my_function( name , age = '"Unkown"' , country = '"Unkown"' ):
+    print(f'Hello {name}, your age is {age} & your country is {country}')
 
-def n(name,age):
-    print('hello',name)
-    print('your age is', age)
-n('Ahmed',23)
+my_function('Mohamed',18)
 
-def average(n1,n2,n3):
-    total=n1+n2+n3
-    ave=total/3
-    print('Average is ',ave)
-average(30,40,50)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#################################################################### [31] Function: Args ###############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# return
-def age():
-    return 9
-number=age()
-print(number) 
+# *
+
+def my_function(*skills):
+    for skill in skills.items():
+        print(f'Your skills are: \n {skill}')
+
+my_function( 'Html' , 'CSS' , 'Python')
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+################################################################## [31] Function: KWArgs ###############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# **
+
+def my_function(**skills):    
+    for key,value in skills.items():
+        print(f'Your skills are: \n {key} => {value}')
+
+my_function( Html = '50%' ,  CSS = '40%' , Python = '20%' )
+
+# Args + KWArgs
+
+def show_skills(name, *skills, **skillsW_pro):
+
+     print(f'Hello {name} and your skills are: ')
+     for skill in skills:
+      print(f'- {skill}')
+
+     print(f'\n Skills with progress are:')
+     for key,value in skillsW_pro.items():
+         print(f'- {key} => {value}')
+
+show_skills('Mohamed', 'CSS', 'JS', Python = '40%' , Java = '50%')
+
+# Example on simple printing:
+myT = ('s','f','k')
+myD = { 
+ 'G':'4',
+ 'd':'2'
+}
+print(**myD)
+print(*myT)
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+################################################################## [31] Function: global & scope ###############################################################################
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+x = 1
+# Global scope
+
+def My_function1():
+    print(x)
+    # Local (function) scope
+
+def My_function2():
+    x = 3
+    print(x)
+    # Local (function) scope
+
+print(x) #1
+My_function1() #1
+My_function2() #2
+
+
+def My_function1():
+    global x
+    x = 2
+    print(x)
+
+def My_function2():
+    print(x)
+    # Local (function) scope
+
+print(x) #1
+My_function1() #2
+My_function2() #2
+
+
+My_function1() #2
+print(x) #2
+My_function2() #2
+
+
+
+
+
+
+
+
+
