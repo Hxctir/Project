@@ -1,7 +1,7 @@
-
 ###############################################################
 ########################## Chapter 1 ##########################
 ###############################################################
+
 #--------------------------------------------------------------
 # [1] Variables
 #--------------------------------------------------------------
@@ -44,9 +44,9 @@
      # [1] Arithmetic operators
      # [2] Comparison operators
      # [3] Assignment operators
-     # [4] Logical operators
-     # [5] Membership operators
-     # [6] Identitiy operators
+     # [4] Logical operators ( and / or / not )
+     # [5] Membership operators ( in / not in )
+     # [6] Identitiy operators ( is / not is )
 
 #--------------------------------------------------------------
 # [4] Conditional statements:
@@ -71,8 +71,7 @@
      # Parameters / Arguments
      # Default / Keyword / Variable-length (*args & **kwargs) Arguments
      # Scope (Local) / Global Variables
-     # Lambda function 
-
+     # Lambda function
 #--------------------------------------------------------------
 
 #########################################
@@ -213,12 +212,13 @@ while Times < 6:
 ############# [6] Function #############
 ########################################
 
-def Function():
-    variable_1 = 'My name is '
-    variable_2 = input('Enter your name: ')
-    variable_3 = variable_1 + variable_2
-    return variable_3
+def say_hello(name):
+    return f'Hello {name}'
 
-Name = Function()
-print(Name)
+print(say_hello('Mohamed'))
 
+#---------------------------------------------------
+# lambda function:
+
+say_hello = lambda name : f'Hello {name}'
+print(say_hello('Ahmed'))
